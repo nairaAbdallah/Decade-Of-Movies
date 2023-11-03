@@ -374,6 +374,7 @@
 				153958B22AF515BE001C8E87 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				153958B52AF515FC001C8E87 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				153958B82AF51A03001C8E87 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				153958C62AF53C5B001C8E87 /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 153958662AF504B2001C8E87 /* Products */;
 			projectDirPath = "";
@@ -729,6 +730,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.1.1;
+			};
+		};
+		153958C62AF53C5B001C8E87 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
