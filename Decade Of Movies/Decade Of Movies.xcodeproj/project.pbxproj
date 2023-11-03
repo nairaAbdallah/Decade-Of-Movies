@@ -24,6 +24,11 @@
 		153958AC2AF5151E001C8E87 /* Decade_Of_MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958AB2AF5151E001C8E87 /* Decade_Of_MoviesTests.swift */; };
 		153958B42AF515BE001C8E87 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 153958B32AF515BE001C8E87 /* Alamofire */; };
 		153958B72AF515FC001C8E87 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 153958B62AF515FC001C8E87 /* Kingfisher */; };
+		153958BB2AF5328E001C8E87 /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 153958BA2AF5328E001C8E87 /* movies.json */; };
+		153958BE2AF53643001C8E87 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958BD2AF53643001C8E87 /* Config.swift */; };
+		153958C12AF53799001C8E87 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958C02AF53799001C8E87 /* State.swift */; };
+		153958C32AF537B3001C8E87 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958C22AF537B3001C8E87 /* NetworkService.swift */; };
+		153958C52AF5387B001C8E87 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958C42AF5387B001C8E87 /* NetworkRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		153958A22AF5145C001C8E87 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		153958A92AF5151D001C8E87 /* Decade Of MoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Decade Of MoviesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		153958AB2AF5151E001C8E87 /* Decade_Of_MoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decade_Of_MoviesTests.swift; sourceTree = "<group>"; };
+		153958BA2AF5328E001C8E87 /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
+		153958BD2AF53643001C8E87 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		153958C02AF53799001C8E87 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		153958C22AF537B3001C8E87 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		153958C42AF5387B001C8E87 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +109,12 @@
 			isa = PBXGroup;
 			children = (
 				1539587C2AF50507001C8E87 /* App */,
+				153958BC2AF535FD001C8E87 /* Network */,
 				1539587D2AF50575001C8E87 /* Coordinator */,
 				153958802AF505D3001C8E87 /* Constant */,
 				153958862AF508EB001C8E87 /* Extensions */,
 				153958892AF5099A001C8E87 /* Scenes */,
+				153958B92AF5327F001C8E87 /* Resources */,
 				153958712AF504B3001C8E87 /* Assets.xcassets */,
 				153958762AF504B3001C8E87 /* Info.plist */,
 			);
@@ -269,6 +281,25 @@
 			path = "Decade Of MoviesTests";
 			sourceTree = "<group>";
 		};
+		153958B92AF5327F001C8E87 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				153958BA2AF5328E001C8E87 /* movies.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		153958BC2AF535FD001C8E87 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				153958BD2AF53643001C8E87 /* Config.swift */,
+				153958C22AF537B3001C8E87 /* NetworkService.swift */,
+				153958C42AF5387B001C8E87 /* NetworkRouter.swift */,
+				153958C02AF53799001C8E87 /* State.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153958BB2AF5328E001C8E87 /* movies.json in Resources */,
 				153958912AF50B96001C8E87 /* Master.storyboard in Resources */,
 				153958752AF504B3001C8E87 /* LaunchScreen.storyboard in Resources */,
 				153958722AF504B3001C8E87 /* Assets.xcassets in Resources */,
@@ -384,11 +416,15 @@
 				1539588E2AF50B24001C8E87 /* MasterViewController.swift in Sources */,
 				153958852AF5064F001C8E87 /* MainCoordinator.swift in Sources */,
 				153958822AF5060E001C8E87 /* Storyboard.swift in Sources */,
+				153958C12AF53799001C8E87 /* State.swift in Sources */,
 				153958A32AF5145C001C8E87 /* SearchViewController.swift in Sources */,
 				1539589B2AF5134F001C8E87 /* DetailsViewController.swift in Sources */,
 				153958882AF50905001C8E87 /* UIView.swift in Sources */,
 				153958692AF504B2001C8E87 /* AppDelegate.swift in Sources */,
+				153958C52AF5387B001C8E87 /* NetworkRouter.swift in Sources */,
+				153958BE2AF53643001C8E87 /* Config.swift in Sources */,
 				1539586B2AF504B2001C8E87 /* SceneDelegate.swift in Sources */,
+				153958C32AF537B3001C8E87 /* NetworkService.swift in Sources */,
 				1539587F2AF505B2001C8E87 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
