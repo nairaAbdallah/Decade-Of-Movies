@@ -14,6 +14,6 @@ struct PhotoSearchViewModel {
         let server = data?.server ?? ""
         let id = data?.id ?? ""
         let secret = data?.secret ?? ""
-        self.photoURL = "http://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg"
+        self.photoURL = "https://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg"
     }
 }

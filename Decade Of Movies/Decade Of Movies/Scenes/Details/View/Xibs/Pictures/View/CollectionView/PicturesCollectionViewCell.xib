@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,14 +11,47 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PicturesCollectionViewCell" reuseIdentifier="PicturesCollectionViewCell" id="gTV-IL-0wX" customClass="PicturesCollectionViewCell" customModule="Decade_Of_Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="160" height="190"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="160" height="190"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lQM-H4-NDN">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="190"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="Light"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <point key="canvasLocation" x="128" y="20"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="lQM-H4-NDN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PwY-hY-IEl"/>
+                <constraint firstItem="lQM-H4-NDN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cru-sb-MNB"/>
+                <constraint firstAttribute="trailing" secondItem="lQM-H4-NDN" secondAttribute="trailing" id="iDE-mi-YhS"/>
+                <constraint firstAttribute="bottom" secondItem="lQM-H4-NDN" secondAttribute="bottom" id="mG6-yg-Jaf"/>
+            </constraints>
+            <size key="customSize" width="160" height="190"/>
+            <connections>
+                <outlet property="moviePicture" destination="lQM-H4-NDN" id="hqb-Lj-iLb"/>
+            </connections>
+            <point key="canvasLocation" x="210.68702290076334" y="-29.577464788732396"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="Light">
+            <color red="0.8666666666666667" green="0.94901960784313721" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
