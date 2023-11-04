@@ -20,7 +20,17 @@ extension UIViewController: UIGestureRecognizerDelegate {
 }
 // MARK: - Navigation
 extension UIViewController {
-    func backNavBK() {
+    private func clearNavBK() {
+        let navigation = navigationController?.navigationBar
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .clear
+        appearance.shadowColor = .clear
+        appearance.shadowImage = UIImage()
+        navigation?.standardAppearance = appearance
+        navigation?.scrollEdgeAppearance = navigation?.standardAppearance
+    }
+    private func backNavBK() {
         interactivePopGesture()
         var backBtn: UIButton {
             let back = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
@@ -31,7 +41,7 @@ extension UIViewController {
         }
         navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: backBtn)]
     }
-    func titleNav(for title: String) {
+    private func titleNav(for title: String) {
         let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.font = UIFont(name: "Avenir-Heavy", size: 16)
@@ -44,5 +54,13 @@ extension UIViewController {
 extension UIViewController {
     @objc func backPressed() {
         navigationController?.popViewController(animated: true)
+    }
+}
+// MARK: - Collect Navigations
+extension UIViewController {
+    func innerNavigation(for title: String) {
+        clearNavBK()
+        backNavBK()
+        titleNav(for: title)
     }
 }

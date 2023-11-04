@@ -16,13 +16,20 @@ class DetailsViewController: UIViewController, Storyboarded {
     // MARK: - Identifiers
     internal let headerId = MasterHeaderTableViewCell.identifier
     internal let itemId = DetailsItemTableViewCell.identifier
+    internal let picturesId = PicturesTableViewCell.identifier
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        backNavBK()
-        titleNav(for: "Details")
+        setUpView()
+    }
+}
+// MARK: - SetUpView
+extension DetailsViewController {
+    private func setUpView() {
+        innerNavigation(for: "Details")
+        detailsVM.fetchPhotos()
         setUpTableView()
     }
 }
@@ -36,12 +43,12 @@ extension DetailsViewController {
         tableView.scrollIndicatorInsets = adjustTabBar
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.sectionHeaderTopPadding = 0.0
-//        tableView.isHidden = true
+        tableView.isHidden = true
         //MARK: - Register cells
         registerCells()
     }
     private func registerCells() {
-        [headerId, itemId].forEach { id in
+        [headerId, itemId, picturesId].forEach { id in
             tableView.register(UINib(nibName: id, bundle: nil),
                                forCellReuseIdentifier: id)
         }

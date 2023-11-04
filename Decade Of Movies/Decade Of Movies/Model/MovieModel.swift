@@ -8,7 +8,7 @@
 import Foundation
 
 struct MovieModel: Codable {
-    var movies: [MovieDataModel]
+    var movies: [MovieDataModel]?
     // MARK: - Initialization
     init?(jsonString: String) {
         guard let data = jsonString.data(using: .utf8) else {
@@ -29,7 +29,7 @@ struct MovieModel: Codable {
 }
 
 struct MovieDataModel: Codable {
-    var title: String
-    var year, rating: Int
-    var cast, genres: [String]
+    var title: String?
+    var year, rating: Int?
+    var cast, genres: [String]?
 }

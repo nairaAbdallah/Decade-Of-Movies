@@ -70,6 +70,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="Dark"/>
+            <connections>
+                <outlet property="itemTitle" destination="Wix-Xx-VgD" id="a2i-b1-fUw"/>
+            </connections>
             <point key="canvasLocation" x="126.71755725190839" y="19.718309859154932"/>
         </tableViewCell>
     </objects>

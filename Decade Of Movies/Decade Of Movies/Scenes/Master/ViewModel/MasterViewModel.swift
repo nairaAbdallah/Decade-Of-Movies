@@ -73,7 +73,7 @@ extension MasterViewModel {
         do {
             let string = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             let data = MovieModel(jsonString: string)
-            masterDataVM = data?.movies.compactMap {MasterDataViewModel(data: $0) } ?? []
+            masterDataVM = data?.movies?.compactMap {MasterDataViewModel(data: $0) } ?? []
         }
         catch {
             state = .error

@@ -9,7 +9,13 @@ import UIKit
 
 class DetailsItemTableViewCell: UITableViewCell {
     // MARK: - Properties
-    
+    var title: String = "" {
+        didSet {
+            itemTitle.text = title
+        }
+    }
+    // MARK: - IBOutlet
+    @IBOutlet weak var itemTitle: UILabel!
     // MARK: - AwakeFromNib
     override func awakeFromNib() {
         super.awakeFromNib()

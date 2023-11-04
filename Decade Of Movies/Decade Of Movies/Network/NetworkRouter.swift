@@ -10,9 +10,7 @@ import Alamofire
 
 enum NetworkRouter: URLRequestConvertible {
     // MARK: - Endpoints
-    case search(text: String,
-                page: Int,
-                perPage: Int)
+    case search(text: String)
     // MARK: - Properties
     var method: HTTPMethod {
         switch self {
@@ -28,15 +26,15 @@ enum NetworkRouter: URLRequestConvertible {
     }
     var parameters: [String: Any]? {
         switch self {
-        case .search(let text, let page, let perPage):
+        case .search(let text):
             let parameters = [
                 "method": "flickr.photos.search",
                 "api_key": "207cc8900720b3a7c574df51f898aeb6",
                 "format": "json",
                 "nojsoncallback": 1,
                 "text": text,
-                "page": page,
-                "per_page": perPage
+                "page": 1,
+                "per_page": 10
             ] as [String: Any]
             return parameters
         }
@@ -49,7 +47,7 @@ enum NetworkRouter: URLRequestConvertible {
         components?.queryItems = []
         urlRequest.httpMethod = method.rawValue
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-        urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+        urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         return urlRequest
     }
 }
