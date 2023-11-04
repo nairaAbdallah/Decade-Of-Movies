@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NVActivityIndicatorView
 
 struct Config {
     static let baseURL: String = "https://api.flickr.com/"
@@ -22,4 +23,4 @@ enum ContentType: String {
     case json = "application/json"
     case urlEncode = "application/x-www-form-urlencoded; charset=UTF-8"
 }
-
+var indicator = NVActivityIndicatorView(frame: .zero)

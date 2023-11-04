@@ -9,6 +9,7 @@ import UIKit
 
 class MasterTableViewCell: UITableViewCell {
     // MARK: - Properties
+    var cellTapped: ((_ movie: MasterDataViewModel?) -> Void)?
     var moviesVM: [MasterDataViewModel] = []
     internal lazy var masterVM: MasterSliderViewModel = {
         return MasterSliderViewModel(for: moviesVM)
@@ -67,6 +68,10 @@ extension MasterTableViewCell: UICollectionViewDataSource {
 }
 // MARK: - UICollectionViewDelegate
 extension MasterTableViewCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = masterVM.getMovieByRow(for: indexPath)
+        cellTapped?(movie)
+    }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {

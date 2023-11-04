@@ -1,39 +1,34 @@
 //
-//  MasterTableView.swift
+//  DetailsTableView.swift
 //  Decade Of Movies
 //
-//  Created by Naira Bassam on 03/11/2023.
+//  Created by Naira Bassam on 04/11/2023.
 //
 
 import UIKit
 
 // MARK: - UITableViewDataSource
-extension MasterViewController: UITableViewDataSource {
+extension DetailsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return masterVM.numOfSections
+        return detailsVM.numOfSections
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return masterVM.getNumOfRow(for: section)
+        return detailsVM.getNumOfRow(for: section)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: masterId,
-                                                       for: indexPath) as? MasterTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: itemId,
+                                                       for: indexPath) as? DetailsItemTableViewCell
         else {
             fatalError("Cell not exists in cell")
-        }
-        cell.moviesVM = masterVM.getCategoryByRow(for: indexPath)
-        cell.cellTapped = {[weak self] movie in
-            guard let self = self else {return}
-            navToDetails(for: movie)
         }
         return cell
     }
 }
 // MARK: - UITableViewDelegate
-extension MasterViewController: UITableViewDelegate {
+extension DetailsViewController: UITableViewDelegate {
     // MARK: - Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return masterVM.heightForHeader
+        return detailsVM.heightForHeader
     }
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
@@ -42,7 +37,7 @@ extension MasterViewController: UITableViewDelegate {
         else {
             fatalError("Cell not exists in cell")
         }
-        cell.title = masterVM.getTitleOfHeader(for: section)
         return cell
     }
 }
+

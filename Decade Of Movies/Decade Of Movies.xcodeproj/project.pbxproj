@@ -41,6 +41,13 @@
 		153958E62AF5989F001C8E87 /* MasterSliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958E52AF5989F001C8E87 /* MasterSliderViewModel.swift */; };
 		153958E82AF59D32001C8E87 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958E72AF59D32001C8E87 /* MovieModel.swift */; };
 		153958EB2AF5A4D2001C8E87 /* MasterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958EA2AF5A4D2001C8E87 /* MasterDataViewModel.swift */; };
+		153958F12AF5BB3F001C8E87 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958F02AF5BB3F001C8E87 /* UIViewController.swift */; };
+		153958F32AF5BB74001C8E87 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 153958F22AF5BB74001C8E87 /* NVActivityIndicatorView */; };
+		153958F52AF5BE3B001C8E87 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958F42AF5BE3B001C8E87 /* Navigation.swift */; };
+		153958FA2AF5C143001C8E87 /* DetailsItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958F82AF5C143001C8E87 /* DetailsItemTableViewCell.swift */; };
+		153958FB2AF5C144001C8E87 /* DetailsItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153958F92AF5C143001C8E87 /* DetailsItemTableViewCell.xib */; };
+		153958FE2AF5C25A001C8E87 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958FD2AF5C25A001C8E87 /* DetailsViewModel.swift */; };
+		153959002AF5C464001C8E87 /* DetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958FF2AF5C464001C8E87 /* DetailsTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +96,12 @@
 		153958E52AF5989F001C8E87 /* MasterSliderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSliderViewModel.swift; sourceTree = "<group>"; };
 		153958E72AF59D32001C8E87 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		153958EA2AF5A4D2001C8E87 /* MasterDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterDataViewModel.swift; sourceTree = "<group>"; };
+		153958F02AF5BB3F001C8E87 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		153958F42AF5BE3B001C8E87 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		153958F82AF5C143001C8E87 /* DetailsItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsItemTableViewCell.swift; sourceTree = "<group>"; };
+		153958F92AF5C143001C8E87 /* DetailsItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsItemTableViewCell.xib; sourceTree = "<group>"; };
+		153958FD2AF5C25A001C8E87 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		153958FF2AF5C464001C8E87 /* DetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +111,7 @@
 			files = (
 				153958B72AF515FC001C8E87 /* Kingfisher in Frameworks */,
 				153958B42AF515BE001C8E87 /* Alamofire in Frameworks */,
+				153958F32AF5BB74001C8E87 /* NVActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +192,8 @@
 			children = (
 				153958872AF50905001C8E87 /* UIView.swift */,
 				153958DE2AF59688001C8E87 /* UIViewInspectable.swift */,
+				153958F02AF5BB3F001C8E87 /* UIViewController.swift */,
+				153958F42AF5BE3B001C8E87 /* Navigation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -232,6 +248,7 @@
 		153958942AF512FD001C8E87 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				153958FC2AF5C24D001C8E87 /* ViewModel */,
 				153958952AF5130D001C8E87 /* View */,
 			);
 			path = Details;
@@ -240,6 +257,7 @@
 		153958952AF5130D001C8E87 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				153958F62AF5C0EB001C8E87 /* Xibs */,
 				153958992AF5133F001C8E87 /* Controllers */,
 				153958962AF51318001C8E87 /* StoryBoard */,
 			);
@@ -258,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				1539589A2AF5134E001C8E87 /* DetailsViewController.swift */,
+				153958FF2AF5C464001C8E87 /* DetailsTableView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -424,6 +443,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		153958F62AF5C0EB001C8E87 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				153958F72AF5C0F9001C8E87 /* Item */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		153958F72AF5C0F9001C8E87 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				153958F82AF5C143001C8E87 /* DetailsItemTableViewCell.swift */,
+				153958F92AF5C143001C8E87 /* DetailsItemTableViewCell.xib */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		153958FC2AF5C24D001C8E87 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				153958FD2AF5C25A001C8E87 /* DetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -443,6 +487,7 @@
 			packageProductDependencies = (
 				153958B32AF515BE001C8E87 /* Alamofire */,
 				153958B62AF515FC001C8E87 /* Kingfisher */,
+				153958F22AF5BB74001C8E87 /* NVActivityIndicatorView */,
 			);
 			productName = "Decade Of Movies";
 			productReference = 153958652AF504B2001C8E87 /* Decade Of Movies.app */;
@@ -523,6 +568,7 @@
 				153958982AF5132A001C8E87 /* Details.storyboard in Resources */,
 				1539589F2AF513C0001C8E87 /* Search.storyboard in Resources */,
 				153958D52AF58BB2001C8E87 /* MasterTableViewCell.xib in Resources */,
+				153958FB2AF5C144001C8E87 /* DetailsItemTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,10 +589,13 @@
 				153958E82AF59D32001C8E87 /* MovieModel.swift in Sources */,
 				153958DC2AF59454001C8E87 /* MasterCollectionViewCell.swift in Sources */,
 				153958CA2AF58234001C8E87 /* MasterViewModel.swift in Sources */,
+				153958F52AF5BE3B001C8E87 /* Navigation.swift in Sources */,
 				1539588E2AF50B24001C8E87 /* MasterViewController.swift in Sources */,
 				153958EB2AF5A4D2001C8E87 /* MasterDataViewModel.swift in Sources */,
 				153958852AF5064F001C8E87 /* MainCoordinator.swift in Sources */,
+				153958F12AF5BB3F001C8E87 /* UIViewController.swift in Sources */,
 				153958D42AF58BB2001C8E87 /* MasterTableViewCell.swift in Sources */,
+				153959002AF5C464001C8E87 /* DetailsTableView.swift in Sources */,
 				153958822AF5060E001C8E87 /* Storyboard.swift in Sources */,
 				153958C12AF53799001C8E87 /* State.swift in Sources */,
 				153958A32AF5145C001C8E87 /* SearchViewController.swift in Sources */,
@@ -555,7 +604,9 @@
 				153958DF2AF59688001C8E87 /* UIViewInspectable.swift in Sources */,
 				153958692AF504B2001C8E87 /* AppDelegate.swift in Sources */,
 				153958C52AF5387B001C8E87 /* NetworkRouter.swift in Sources */,
+				153958FE2AF5C25A001C8E87 /* DetailsViewModel.swift in Sources */,
 				153958BE2AF53643001C8E87 /* Config.swift in Sources */,
+				153958FA2AF5C143001C8E87 /* DetailsItemTableViewCell.swift in Sources */,
 				1539586B2AF504B2001C8E87 /* SceneDelegate.swift in Sources */,
 				153958CF2AF58723001C8E87 /* MasterHeaderTableViewCell.swift in Sources */,
 				153958C32AF537B3001C8E87 /* NetworkService.swift in Sources */,
@@ -879,6 +930,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 153958B52AF515FC001C8E87 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		153958F22AF5BB74001C8E87 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 153958B82AF51A03001C8E87 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

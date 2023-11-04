@@ -39,6 +39,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 // MARK: - Coordinator
 extension SceneDelegate {
     private func start() {
-        coordinator?.start(controller: MasterViewController(), with: window)
+        coordinator?.start(controller: MasterViewController(), containNav: true, with: window)
     }
 }

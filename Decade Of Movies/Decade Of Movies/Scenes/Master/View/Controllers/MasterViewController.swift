@@ -26,6 +26,16 @@ class MasterViewController: UIViewController, Storyboarded {
         setUpTableView()
         masterVM.getMovies()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar on the this view controller
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the navigation bar on other view controllers
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 }
 // MARK: - SetUp tableView
 extension MasterViewController {
@@ -55,11 +65,11 @@ extension MasterViewController: MasterProtocol {
             guard let self = self else { return }
             switch state {
             case .loading:
-                print("")
+                activityIndicator(activity: indicator)
             case .empty, .error:
-                print("")
+                indicator.stopAnimating()
             default:
-                print("")
+                indicator.stopAnimating()
             }
         }
     }
@@ -69,5 +79,14 @@ extension MasterViewController: MasterProtocol {
             tableView.reloadData()
             tableView.isHidden = isHidden
         }
+    }
+}
+// MARK: - Coordinator
+extension MasterViewController {
+    func navToDetails(for movie: MasterDataViewModel?) {
+        let details = coordinator?.navToController(controller: DetailsViewController(),
+                                                   navControl: navigationController,
+                                                   storyboard: Storyboard.details)
+        details?.movie = movie
     }
 }
