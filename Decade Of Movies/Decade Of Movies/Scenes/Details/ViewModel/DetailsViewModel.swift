@@ -25,7 +25,7 @@ class DetailsViewModel {
     // MARK: - Fetch PhotoSearch
     private let apiService: PhotoSearchService
     // MARK: - Fetching Result
-    private var photosModel: PhotosModel? {
+    var photosModel: PhotosModel? {
         didSet {
             self.processFetchedPhotos(data: photosModel)
         }
@@ -38,7 +38,7 @@ class DetailsViewModel {
     }
     // MARK: - initialization
     init(apiService: PhotoSearchService = PhotoSearchServiceImpl(),
-         delegate: DetailsProtocol) {
+         delegate: DetailsProtocol?) {
         self.apiService = apiService
         self.delegate = delegate
     }

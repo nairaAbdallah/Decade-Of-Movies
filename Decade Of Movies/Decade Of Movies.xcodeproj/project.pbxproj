@@ -62,6 +62,10 @@
 		15EAC4EC2AF6AE5D00526804 /* MasterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAC4EA2AF6AE5D00526804 /* MasterCollectionViewCell.swift */; };
 		15EAC4ED2AF6AE5D00526804 /* MasterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15EAC4EB2AF6AE5D00526804 /* MasterCollectionViewCell.xib */; };
 		15EAC4EF2AF6B26400526804 /* MasterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAC4EE2AF6B26400526804 /* MasterCollectionView.swift */; };
+		15EAC4F12AF6BFF100526804 /* PhotoSearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAC4F02AF6BFF100526804 /* PhotoSearchServiceTests.swift */; };
+		15EAC4F82AF6DB3A00526804 /* photos.json in Resources */ = {isa = PBXBuildFile; fileRef = 15EAC4F72AF6DB3A00526804 /* photos.json */; };
+		15EAC4FA2AF6DB8100526804 /* MockPhotoSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAC4F92AF6DB8100526804 /* MockPhotoSearchService.swift */; };
+		15EAC4FB2AF6E56500526804 /* photos.json in Resources */ = {isa = PBXBuildFile; fileRef = 15EAC4F72AF6DB3A00526804 /* photos.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +133,9 @@
 		15EAC4EA2AF6AE5D00526804 /* MasterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCollectionViewCell.swift; sourceTree = "<group>"; };
 		15EAC4EB2AF6AE5D00526804 /* MasterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterCollectionViewCell.xib; sourceTree = "<group>"; };
 		15EAC4EE2AF6B26400526804 /* MasterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCollectionView.swift; sourceTree = "<group>"; };
+		15EAC4F02AF6BFF100526804 /* PhotoSearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchServiceTests.swift; sourceTree = "<group>"; };
+		15EAC4F72AF6DB3A00526804 /* photos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = photos.json; sourceTree = "<group>"; };
+		15EAC4F92AF6DB8100526804 /* MockPhotoSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotoSearchService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,7 +365,9 @@
 		153958AA2AF5151E001C8E87 /* Decade Of MoviesTests */ = {
 			isa = PBXGroup;
 			children = (
-				153958AB2AF5151E001C8E87 /* Decade_Of_MoviesTests.swift */,
+				15EAC4F62AF6DB2D00526804 /* Resources */,
+				15EAC4F22AF6C62E00526804 /* Mock */,
+				15EAC4F52AF6C65C00526804 /* Tests */,
 			);
 			path = "Decade Of MoviesTests";
 			sourceTree = "<group>";
@@ -589,6 +598,31 @@
 			path = Master;
 			sourceTree = "<group>";
 		};
+		15EAC4F22AF6C62E00526804 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				15EAC4F92AF6DB8100526804 /* MockPhotoSearchService.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		15EAC4F52AF6C65C00526804 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				153958AB2AF5151E001C8E87 /* Decade_Of_MoviesTests.swift */,
+				15EAC4F02AF6BFF100526804 /* PhotoSearchServiceTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		15EAC4F62AF6DB2D00526804 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15EAC4F72AF6DB3A00526804 /* photos.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -692,6 +726,7 @@
 				153958752AF504B3001C8E87 /* LaunchScreen.storyboard in Resources */,
 				153958722AF504B3001C8E87 /* Assets.xcassets in Resources */,
 				153958982AF5132A001C8E87 /* Details.storyboard in Resources */,
+				15EAC4FB2AF6E56500526804 /* photos.json in Resources */,
 				1539589F2AF513C0001C8E87 /* Search.storyboard in Resources */,
 				153958D52AF58BB2001C8E87 /* SearchTableViewCell.xib in Resources */,
 				153958FB2AF5C144001C8E87 /* DetailsItemTableViewCell.xib in Resources */,
@@ -702,6 +737,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EAC4F82AF6DB3A00526804 /* photos.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +792,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EAC4F12AF6BFF100526804 /* PhotoSearchServiceTests.swift in Sources */,
+				15EAC4FA2AF6DB8100526804 /* MockPhotoSearchService.swift in Sources */,
 				153958AC2AF5151E001C8E87 /* Decade_Of_MoviesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
