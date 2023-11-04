@@ -16,10 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OJA-4N-ePd">
-                                <rect key="frame" x="0.0" y="175" width="393" height="643"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies ✨" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiL-hK-S8F">
                                 <rect key="frame" x="16.000000000000007" y="119" width="120.66666666666669" height="40"/>
                                 <constraints>
@@ -41,23 +37,34 @@
                                     <action selector="searchAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hjz-cd-zI0"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="buu-1u-qzw">
+                                <rect key="frame" x="0.0" y="175" width="393" height="677"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ln9-ut-hXv">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Dark"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MEe-Lk-YpJ" secondAttribute="trailing" constant="16" id="1eU-8x-vSp"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OJA-4N-ePd" secondAttribute="trailing" id="EVg-TI-ynR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="buu-1u-qzw" secondAttribute="trailing" id="6Mr-cq-gk3"/>
                             <constraint firstItem="GiL-hK-S8F" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Ex5-Uq-peL"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OJA-4N-ePd" secondAttribute="bottom" id="RvO-FG-X1Y"/>
+                            <constraint firstItem="buu-1u-qzw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Nrn-PQ-UGU"/>
+                            <constraint firstAttribute="bottom" secondItem="buu-1u-qzw" secondAttribute="bottom" id="TEk-Y3-rLa"/>
+                            <constraint firstItem="buu-1u-qzw" firstAttribute="top" secondItem="GiL-hK-S8F" secondAttribute="bottom" constant="16" id="hWX-Jx-uRM"/>
                             <constraint firstItem="GiL-hK-S8F" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="rnZ-Pm-VhA"/>
-                            <constraint firstItem="OJA-4N-ePd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="shF-2H-30z"/>
-                            <constraint firstItem="OJA-4N-ePd" firstAttribute="top" secondItem="GiL-hK-S8F" secondAttribute="bottom" constant="16" id="uAH-iU-AVt"/>
                             <constraint firstItem="MEe-Lk-YpJ" firstAttribute="centerY" secondItem="GiL-hK-S8F" secondAttribute="centerY" id="y7f-m7-bST"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ehu-a0-8vm"/>
                     <connections>
-                        <outlet property="tableView" destination="OJA-4N-ePd" id="qtg-Rw-VnP"/>
+                        <outlet property="collectionView" destination="buu-1u-qzw" id="uFY-cS-zWv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

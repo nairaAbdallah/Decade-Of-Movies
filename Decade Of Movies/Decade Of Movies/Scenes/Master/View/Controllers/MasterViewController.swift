@@ -16,10 +16,9 @@ class MasterViewController: UIViewController, Storyboarded {
         return MasterViewModel(delegate: self)
     }()
     // MARK: - Identifiers
-    internal let headerId = SearchHeaderTableViewCell.identifier
-    internal let masterId = SearchTableViewCell.identifier
+    internal let masterId = MasterCollectionViewCell.identifier
     // MARK: - IBOutlet
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     // MARK: - IBAction
     @IBAction func searchAction(_ sender: UIButton) {
         navToSearch()
@@ -27,8 +26,8 @@ class MasterViewController: UIViewController, Storyboarded {
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTableView()
         masterVM.getMovies()
+        setupCollectionView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,25 +40,19 @@ class MasterViewController: UIViewController, Storyboarded {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
-// MARK: - SetUp tableView
+// MARK: - SetUpCollectionView
 extension MasterViewController {
-    private func setUpTableView() {
-        let adjustTabBar = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.contentInset = adjustTabBar
-        tableView.scrollIndicatorInsets = adjustTabBar
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.sectionHeaderTopPadding = 0.0
-        tableView.isHidden = true
-        //MARK: - Register cells
-        registerCells()
-    }
-    private func registerCells() {
-        [headerId, masterId].forEach { id in
-            tableView.register(UINib(nibName: id, bundle: nil),
-                               forCellReuseIdentifier: id)
-        }
+    private func setupCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.contentInset = masterVM.adjustTabBar
+        collectionView.scrollIndicatorInsets = masterVM.adjustTabBar
+        // Register cells
+        collectionView.register(UINib(nibName: masterId, bundle: nil),
+                                forCellWithReuseIdentifier: masterId)
+        // casting is required because UICollectionViewLayout doesn't offer header pin.
+        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.sectionHeadersPinToVisibleBounds = true
     }
 }
 // MARK: - Implement protocol
@@ -77,11 +70,11 @@ extension MasterViewController: MasterProtocol {
             }
         }
     }
-    var reloadTableView: ((Bool) -> Void)? {
+    var reloadCollectionView: ((Bool) -> Void)? {
         return { [weak self] isHidden in
             guard let self = self else { return }
-            tableView.reloadData()
-            tableView.isHidden = isHidden
+            collectionView.reloadData()
+            collectionView.isHidden = isHidden
         }
     }
 }
@@ -94,9 +87,9 @@ extension MasterViewController {
         details?.movie = movie
     }
     func navToSearch() {
-        let search = coordinator?.navToController(controller: SearchViewController(),
-                                                   navControl: navigationController,
-                                                   storyboard: Storyboard.search)
+        _ = coordinator?.navToController(controller: SearchViewController(),
+                                         navControl: navigationController,
+                                         storyboard: Storyboard.search)
     }
 }
 

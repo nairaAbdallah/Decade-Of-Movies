@@ -85,3 +85,13 @@ extension SearchViewController: SearchProtocol {
         }
     }
 }
+// MARK: - Coordinator
+extension SearchViewController {
+    func navToDetails(for movie: MasterDataViewModel?) {
+        let details = coordinator?.navToController(controller: DetailsViewController(),
+                                                   navControl: navigationController,
+                                                   storyboard: Storyboard.details)
+        details?.movie = movie
+    }
+}
+

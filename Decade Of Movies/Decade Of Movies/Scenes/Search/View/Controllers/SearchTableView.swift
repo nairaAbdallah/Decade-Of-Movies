@@ -23,12 +23,10 @@ extension SearchViewController: UITableViewDataSource {
         }
         
         cell.moviesVM = searchVM.getMoviesBySection(for: indexPath)
-//        cell.cellTapped = {[weak self] movie in
-//            guard let self = self else {return}
-//            navToDetails(for: movie)
-//        }
-        
-        
+        cell.cellTapped = {[weak self] movie in
+            guard let self = self else {return}
+            navToDetails(for: movie)
+        }
         return cell
     }
 }

@@ -5,28 +5,21 @@
 //  Created by Naira Bassam on 03/11/2023.
 //
 
-import Foundation
+import UIKit
 
 protocol MasterProtocol {
     var updateLoadingStatus: ((_ state: State) -> Void)? { get }
-    var reloadTableView: ((_ isHidden: Bool) -> Void)? { get }
+    var reloadCollectionView: ((_ isHidden: Bool) -> Void)? { get }
 }
 
 class MasterViewModel {
     // MARK: - properties
+    private let screenWidth = UIScreen.main.bounds.width
     var delegate: MasterProtocol?
-    private let headers = ["Top Rated", "Most Recent",
-                           "Action", "Family",
-                           "Comedy", "All Categories"]
     // MARK: - DataViewModel
     private var masterDataVM: [MasterDataViewModel] = [] {
         didSet {
-            categoriesMovies()
-        }
-    }
-    var categories: [[MasterDataViewModel]] = [] {
-        didSet {
-            delegate?.reloadTableView?(false)
+            delegate?.reloadCollectionView?(false)
             state = .populated
         }
     }
@@ -41,28 +34,30 @@ class MasterViewModel {
         self.delegate = delegate
     }
 }
-// MARK: - SetUpTableView
+// MARK: - UICollectionViewDataSource
 extension MasterViewModel {
-    var numOfSections: Int {
-        return 6
+    var adjustTabBar: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
     }
-    func getNumOfRow(for section: Int) -> Int {
-        guard categories.count > section else {return 0}
+    var numOfSections: Int {
         return 1
     }
-    func getCategoryBySection(for indexPath: IndexPath) -> [MasterDataViewModel] {
-        guard categories.count > indexPath.section else {return []}
-        return categories[indexPath.section]
+    var numOfItemsInSection: Int {
+        return masterDataVM.count
+    }
+    func getCategoryByRow(for indexPath: IndexPath) -> MasterDataViewModel? {
+        guard masterDataVM.count > indexPath.row else {return nil}
+        return masterDataVM[indexPath.row]
     }
 }
-// MARK: - Header
+// MARK: - UICollectionViewDelegate
 extension MasterViewModel {
-    var heightForHeader: CGFloat {
-        return 45
+    var cellSize: CGSize {
+        let midScreen = screenWidth/2
+        return CGSize(width: midScreen-24, height: 200)
     }
-    func getTitleOfHeader(for section: Int) -> String {
-        guard headers.count > section else {return ""}
-        return headers[section]
+    var lineSpace: CGFloat {
+        return 16
     }
 }
 // MARK: - Get Movies
@@ -78,16 +73,5 @@ extension MasterViewModel {
         catch {
             state = .error
         }
-    }
-}
-// MARK: - Categories Movies
-extension MasterViewModel {
-    private func categoriesMovies() {
-        let topRated = masterDataVM.filter{$0.rating == 5}
-        let mostRecent = masterDataVM.filter{$0.year > 2017}
-        let action = masterDataVM.filter{$0.genres.contains("Action")}
-        let family = masterDataVM.filter{$0.genres.contains("Family")}
-        let comedy = masterDataVM.filter{$0.genres.contains("Comedy")}
-        categories = [topRated, mostRecent, action, family, comedy, masterDataVM]
     }
 }
