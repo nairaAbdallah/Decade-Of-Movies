@@ -8,11 +8,16 @@
 import UIKit
 
 class SearchViewController: UIViewController, Storyboarded {
-
+    // MARK: - Properties
+    
+    
+    // MARK: - IBOutlet
+    @IBOutlet weak var searchTF: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        innerNavigation(for: "Search")
     }
-
+    
 }

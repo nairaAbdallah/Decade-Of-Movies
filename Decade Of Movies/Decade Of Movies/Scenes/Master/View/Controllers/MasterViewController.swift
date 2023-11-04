@@ -20,6 +20,10 @@ class MasterViewController: UIViewController, Storyboarded {
     internal let masterId = MasterTableViewCell.identifier
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
+    // MARK: - IBAction
+    @IBAction func searchAction(_ sender: UIButton) {
+        navToSearch()
+    }
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,4 +93,10 @@ extension MasterViewController {
                                                    storyboard: Storyboard.details)
         details?.movie = movie
     }
+    func navToSearch() {
+        let search = coordinator?.navToController(controller: SearchViewController(),
+                                                   navControl: navigationController,
+                                                   storyboard: Storyboard.search)
+    }
 }
+

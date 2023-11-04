@@ -12,7 +12,7 @@ class PicturesCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     var picture: String = "" {
         didSet {
-            if let url = URL(string: picture) {
+            if let url = URL(string: picture.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? picture) {
                 self.moviePicture.kf.setImage(with: url, placeholder: UIImage(named: "placeHolder"))
             } else {
                 self.moviePicture.image = UIImage(named: "placeHolder")

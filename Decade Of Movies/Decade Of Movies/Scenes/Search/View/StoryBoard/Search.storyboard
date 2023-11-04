@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,9 +15,69 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ro8-w6-0s0">
+                                <rect key="frame" x="16" y="75" width="361" height="55"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="yec-ei-JkD">
+                                        <rect key="frame" x="8" y="8" width="39" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="LkN-in-M5E"/>
+                                            <constraint firstAttribute="width" constant="39" id="VUa-wo-tIQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find your movie" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="KQt-0M-sgF">
+                                        <rect key="frame" x="55" y="8" width="298" height="39"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="KQt-0M-sgF" firstAttribute="top" secondItem="Ro8-w6-0s0" secondAttribute="top" constant="8" id="Nbx-5h-vYj"/>
+                                    <constraint firstAttribute="bottom" secondItem="KQt-0M-sgF" secondAttribute="bottom" constant="8" id="Ttr-BF-ufb"/>
+                                    <constraint firstItem="yec-ei-JkD" firstAttribute="leading" secondItem="Ro8-w6-0s0" secondAttribute="leading" constant="8" id="bge-dv-yQP"/>
+                                    <constraint firstAttribute="trailing" secondItem="KQt-0M-sgF" secondAttribute="trailing" constant="8" id="kKU-PB-8TN"/>
+                                    <constraint firstItem="KQt-0M-sgF" firstAttribute="leading" secondItem="yec-ei-JkD" secondAttribute="trailing" constant="8" id="keF-Ry-8Pb"/>
+                                    <constraint firstAttribute="bottom" secondItem="yec-ei-JkD" secondAttribute="bottom" constant="8" id="r4z-Ex-BZU"/>
+                                    <constraint firstItem="yec-ei-JkD" firstAttribute="top" secondItem="Ro8-w6-0s0" secondAttribute="top" constant="8" id="zYX-gj-x6b"/>
+                                    <constraint firstAttribute="height" constant="55" id="zcW-ya-x32"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="Light"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mxb-IN-HmE">
+                                <rect key="frame" x="0.0" y="138" width="393" height="680"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Dark"/>
+                        <constraints>
+                            <constraint firstItem="Ro8-w6-0s0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="6FG-uV-SwX"/>
+                            <constraint firstItem="Ro8-w6-0s0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="aLi-9r-3D9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mxb-IN-HmE" secondAttribute="trailing" id="hQK-Jc-qw8"/>
+                            <constraint firstItem="mxb-IN-HmE" firstAttribute="top" secondItem="Ro8-w6-0s0" secondAttribute="bottom" constant="8" id="hrZ-p3-dPI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ro8-w6-0s0" secondAttribute="trailing" constant="16" id="rZb-1Y-xwg"/>
+                            <constraint firstItem="mxb-IN-HmE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="x6e-2f-ChH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="mxb-IN-HmE" secondAttribute="bottom" id="xCm-cy-EuP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchTF" destination="KQt-0M-sgF" id="dhw-2O-Yvp"/>
+                        <outlet property="tableView" destination="mxb-IN-HmE" id="1UP-G8-pK4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,8 +85,12 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="search" width="100" height="100"/>
+        <namedColor name="Dark">
+            <color red="0.086274509803921567" green="0.28235294117647058" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Light">
+            <color red="0.8666666666666667" green="0.94901960784313721" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
