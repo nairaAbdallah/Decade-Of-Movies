@@ -46,6 +46,8 @@
 		153958FB2AF5C144001C8E87 /* DetailsItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153958F92AF5C143001C8E87 /* DetailsItemTableViewCell.xib */; };
 		153958FE2AF5C25A001C8E87 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958FD2AF5C25A001C8E87 /* DetailsViewModel.swift */; };
 		153959002AF5C464001C8E87 /* DetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958FF2AF5C464001C8E87 /* DetailsTableView.swift */; };
+		159B13772AF6FECF003353A5 /* MasterViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159B13762AF6FECF003353A5 /* MasterViewUITests.swift */; };
+		159B13792AF6FF2E003353A5 /* DetailsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159B13782AF6FF2E003353A5 /* DetailsViewUITests.swift */; };
 		15A227142AF6355E0099792E /* DetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A227132AF6355E0099792E /* DetailsService.swift */; };
 		15A227162AF647EB0099792E /* PhotoSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A227152AF647EB0099792E /* PhotoSearchModel.swift */; };
 		15A2271B2AF64DC20099792E /* PhotoSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A2271A2AF64DC20099792E /* PhotoSearchViewModel.swift */; };
@@ -69,6 +71,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		153958AD2AF5151E001C8E87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1539585D2AF504B2001C8E87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 153958642AF504B2001C8E87;
+			remoteInfo = "Decade Of Movies";
+		};
+		15EAC5062AF6E7DE00526804 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1539585D2AF504B2001C8E87 /* Project object */;
 			proxyType = 1;
@@ -117,6 +126,8 @@
 		153958F92AF5C143001C8E87 /* DetailsItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsItemTableViewCell.xib; sourceTree = "<group>"; };
 		153958FD2AF5C25A001C8E87 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		153958FF2AF5C464001C8E87 /* DetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableView.swift; sourceTree = "<group>"; };
+		159B13762AF6FECF003353A5 /* MasterViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewUITests.swift; sourceTree = "<group>"; };
+		159B13782AF6FF2E003353A5 /* DetailsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewUITests.swift; sourceTree = "<group>"; };
 		15A227132AF6355E0099792E /* DetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsService.swift; sourceTree = "<group>"; };
 		15A227152AF647EB0099792E /* PhotoSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchModel.swift; sourceTree = "<group>"; };
 		15A2271A2AF64DC20099792E /* PhotoSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +145,7 @@
 		15EAC4F02AF6BFF100526804 /* PhotoSearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchServiceTests.swift; sourceTree = "<group>"; };
 		15EAC4F72AF6DB3A00526804 /* photos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = photos.json; sourceTree = "<group>"; };
 		15EAC4F92AF6DB8100526804 /* MockPhotoSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotoSearchService.swift; sourceTree = "<group>"; };
+		15EAC5002AF6E7DE00526804 /* DecadeOfMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecadeOfMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +167,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15EAC4FD2AF6E7DE00526804 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -163,6 +182,7 @@
 			children = (
 				153958672AF504B2001C8E87 /* Decade Of Movies */,
 				153958AA2AF5151E001C8E87 /* Decade Of MoviesTests */,
+				15EAC5012AF6E7DE00526804 /* DecadeOfMoviesUITests */,
 				153958662AF504B2001C8E87 /* Products */,
 				153958ED2AF5A82B001C8E87 /* Frameworks */,
 			);
@@ -173,6 +193,7 @@
 			children = (
 				153958652AF504B2001C8E87 /* Decade Of Movies.app */,
 				153958A92AF5151D001C8E87 /* Decade Of MoviesTests.xctest */,
+				15EAC5002AF6E7DE00526804 /* DecadeOfMoviesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -620,6 +641,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		15EAC5012AF6E7DE00526804 /* DecadeOfMoviesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				159B13762AF6FECF003353A5 /* MasterViewUITests.swift */,
+				159B13782AF6FF2E003353A5 /* DetailsViewUITests.swift */,
+			);
+			path = DecadeOfMoviesUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -664,6 +694,24 @@
 			productReference = 153958A92AF5151D001C8E87 /* Decade Of MoviesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		15EAC4FF2AF6E7DE00526804 /* DecadeOfMoviesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15EAC50A2AF6E7DF00526804 /* Build configuration list for PBXNativeTarget "DecadeOfMoviesUITests" */;
+			buildPhases = (
+				15EAC4FC2AF6E7DE00526804 /* Sources */,
+				15EAC4FD2AF6E7DE00526804 /* Frameworks */,
+				15EAC4FE2AF6E7DE00526804 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15EAC5072AF6E7DE00526804 /* PBXTargetDependency */,
+			);
+			name = DecadeOfMoviesUITests;
+			productName = DecadeOfMoviesUITests;
+			productReference = 15EAC5002AF6E7DE00526804 /* DecadeOfMoviesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -678,6 +726,10 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					153958A82AF5151D001C8E87 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 153958642AF504B2001C8E87;
+					};
+					15EAC4FF2AF6E7DE00526804 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = 153958642AF504B2001C8E87;
 					};
@@ -704,6 +756,7 @@
 			targets = (
 				153958642AF504B2001C8E87 /* Decade Of Movies */,
 				153958A82AF5151D001C8E87 /* Decade Of MoviesTests */,
+				15EAC4FF2AF6E7DE00526804 /* DecadeOfMoviesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -735,6 +788,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				15EAC4F82AF6DB3A00526804 /* photos.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15EAC4FE2AF6E7DE00526804 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +854,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15EAC4FC2AF6E7DE00526804 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				159B13772AF6FECF003353A5 /* MasterViewUITests.swift in Sources */,
+				159B13792AF6FF2E003353A5 /* DetailsViewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -801,6 +870,11 @@
 			isa = PBXTargetDependency;
 			target = 153958642AF504B2001C8E87 /* Decade Of Movies */;
 			targetProxy = 153958AD2AF5151E001C8E87 /* PBXContainerItemProxy */;
+		};
+		15EAC5072AF6E7DE00526804 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 153958642AF504B2001C8E87 /* Decade Of Movies */;
+			targetProxy = 15EAC5062AF6E7DE00526804 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1031,6 +1105,40 @@
 			};
 			name = Release;
 		};
+		15EAC5082AF6E7DE00526804 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3YV96CWT3T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Naira.DecadeOfMoviesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Decade Of Movies";
+			};
+			name = Debug;
+		};
+		15EAC5092AF6E7DE00526804 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3YV96CWT3T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Naira.DecadeOfMoviesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Decade Of Movies";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1057,6 +1165,15 @@
 			buildConfigurations = (
 				153958B02AF5151E001C8E87 /* Debug */,
 				153958B12AF5151E001C8E87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15EAC50A2AF6E7DF00526804 /* Build configuration list for PBXNativeTarget "DecadeOfMoviesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15EAC5082AF6E7DE00526804 /* Debug */,
+				15EAC5092AF6E7DE00526804 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
