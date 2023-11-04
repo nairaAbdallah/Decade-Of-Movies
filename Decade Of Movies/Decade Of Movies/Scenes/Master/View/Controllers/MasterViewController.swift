@@ -16,8 +16,8 @@ class MasterViewController: UIViewController, Storyboarded {
         return MasterViewModel(delegate: self)
     }()
     // MARK: - Identifiers
-    internal let headerId = MasterHeaderTableViewCell.identifier
-    internal let masterId = MasterTableViewCell.identifier
+    internal let headerId = SearchHeaderTableViewCell.identifier
+    internal let masterId = SearchTableViewCell.identifier
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     // MARK: - IBAction

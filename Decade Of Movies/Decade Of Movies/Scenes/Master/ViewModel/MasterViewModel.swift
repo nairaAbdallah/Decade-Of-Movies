@@ -50,7 +50,7 @@ extension MasterViewModel {
         guard categories.count > section else {return 0}
         return 1
     }
-    func getCategoryByRow(for indexPath: IndexPath) -> [MasterDataViewModel] {
+    func getCategoryBySection(for indexPath: IndexPath) -> [MasterDataViewModel] {
         guard categories.count > indexPath.section else {return []}
         return categories[indexPath.section]
     }

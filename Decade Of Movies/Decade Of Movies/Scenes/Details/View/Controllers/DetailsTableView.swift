@@ -62,7 +62,7 @@ extension DetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: headerId)
-                as? MasterHeaderTableViewCell
+                as? SearchHeaderTableViewCell
         else {
             fatalError("Cell not exists in cell")
         }

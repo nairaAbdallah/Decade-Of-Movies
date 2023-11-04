@@ -1,5 +1,5 @@
 //
-//  MasterTableViewCell.swift
+//  SearchTableViewCell.swift
 //  Decade Of Movies
 //
 //  Created by Naira Bassam on 03/11/2023.
@@ -7,15 +7,21 @@
 
 import UIKit
 
-class MasterTableViewCell: UITableViewCell {
+class SearchTableViewCell: UITableViewCell {
     // MARK: - Properties
     var cellTapped: ((_ movie: MasterDataViewModel?) -> Void)?
-    var moviesVM: [MasterDataViewModel] = []
-    internal lazy var masterVM: MasterSliderViewModel = {
-        return MasterSliderViewModel(for: moviesVM)
+    var moviesVM: [MasterDataViewModel] = [] {
+        didSet {
+            // ReInitialize ViewModel for search screen to update data on it
+            searchVM = SearchSliderViewModel(for: moviesVM)
+            collectionView.reloadData()
+        }
+    }
+    internal lazy var searchVM: SearchSliderViewModel = {
+        return SearchSliderViewModel(for: moviesVM)
     }()
     // MARK: - Identifier
-    private let masterId = MasterCollectionViewCell.identifier
+    private let masterId = SearchCollectionViewCell.identifier
     // MARK: - IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
     // MARK: - AwakeFromNib
@@ -30,7 +36,7 @@ class MasterTableViewCell: UITableViewCell {
     
 }
 // MARK: - SetUp Collection View
-extension MasterTableViewCell {
+extension SearchTableViewCell {
     private func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -47,29 +53,29 @@ extension MasterTableViewCell {
     }
 }
 // MARK: - UICollectionViewDataSource
-extension MasterTableViewCell: UICollectionViewDataSource {
+extension SearchTableViewCell: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return masterVM.numOfSections
+        return searchVM.numOfSections
     }
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return masterVM.numOfItems
+        return searchVM.numOfItems
     }
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: masterId, for: indexPath)
-                as? MasterCollectionViewCell 
+                as? SearchCollectionViewCell 
         else {
             fatalError("Cell not exists in cell")
         }
-        cell.title = masterVM.getTitleMovieByRow(for: indexPath)
+        cell.title = searchVM.getTitleMovieByRow(for: indexPath)
         return cell
     }
 }
 // MARK: - UICollectionViewDelegate
-extension MasterTableViewCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension SearchTableViewCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movie = masterVM.getMovieByRow(for: indexPath)
+        let movie = searchVM.getMovieByRow(for: indexPath)
         cellTapped?(movie)
     }
     func collectionView(_ collectionView: UICollectionView,
@@ -80,16 +86,16 @@ extension MasterTableViewCell: UICollectionViewDelegate, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return masterVM.minLineSpacing
+        return searchVM.minLineSpacing
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return masterVM.minInteritemSpacing
+        return searchVM.minInteritemSpacing
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return masterVM.sizeForItemAt
+        return searchVM.sizeForItemAt
     }
 }

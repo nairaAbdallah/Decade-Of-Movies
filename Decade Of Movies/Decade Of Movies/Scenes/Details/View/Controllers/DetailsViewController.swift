@@ -14,7 +14,7 @@ class DetailsViewController: UIViewController, Storyboarded {
         return DetailsViewModel(delegate: self)
     }()
     // MARK: - Identifiers
-    internal let headerId = MasterHeaderTableViewCell.identifier
+    internal let headerId = SearchHeaderTableViewCell.identifier
     internal let itemId = DetailsItemTableViewCell.identifier
     internal let picturesId = PicturesTableViewCell.identifier
     // MARK: - IBOutlet

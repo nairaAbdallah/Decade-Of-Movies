@@ -1,5 +1,5 @@
 //
-//  MasterSliderViewModel.swift
+//  SearchSliderViewModel.swift
 //  Decade Of Movies
 //
 //  Created by Naira Bassam on 03/11/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MasterSliderViewModel {
+class SearchSliderViewModel {
     // MARK: - properties
     var movies: [MasterDataViewModel]
     // MARK: - initialization
@@ -24,7 +24,7 @@ class MasterSliderViewModel {
     }
 }
 // MARK: - CollectionViewDataSource
-extension MasterSliderViewModel {
+extension SearchSliderViewModel {
     var numOfSections: Int {
         return 1
     }
@@ -33,7 +33,7 @@ extension MasterSliderViewModel {
     }
 }
 // MARK: - CollectionViewDelegate
-extension MasterSliderViewModel {
+extension SearchSliderViewModel {
     var sizeForItemAt: CGSize {
         return CGSize(width: 160, height: 90)
     }

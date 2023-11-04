@@ -1,5 +1,5 @@
 //
-//  MasterHeaderTableViewCell.swift
+//  SearchHeaderTableViewCell.swift
 //  Decade Of Movies
 //
 //  Created by Naira Bassam on 03/11/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MasterHeaderTableViewCell: UITableViewCell {
+class SearchHeaderTableViewCell: UITableViewCell {
     // MARK: - Properties
     var title: String = "" {
         didSet {

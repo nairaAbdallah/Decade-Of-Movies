@@ -1,5 +1,5 @@
 //
-//  MasterCollectionViewCell.swift
+//  SearchCollectionViewCell.swift
 //  Decade Of Movies
 //
 //  Created by Naira Bassam on 03/11/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MasterCollectionViewCell: UICollectionViewCell {
+class SearchCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     var title: String = "" {
         didSet {
