@@ -1,6 +1,6 @@
 # Decade-Of-Movies
 An app that shows movies and the signature they left behind
-Using
+<strong>Using</strong>
 Design Architecture MVVM,
 Coordinator pattern,
 , Unit Test
