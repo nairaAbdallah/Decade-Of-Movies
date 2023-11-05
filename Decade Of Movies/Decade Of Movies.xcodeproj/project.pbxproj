@@ -56,6 +56,7 @@
 		15A227252AF65D390099792E /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A227232AF65D390099792E /* PicturesCollectionViewCell.swift */; };
 		15A227262AF65D390099792E /* PicturesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15A227242AF65D390099792E /* PicturesCollectionViewCell.xib */; };
 		15A2272A2AF6607B0099792E /* PicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A227292AF6607B0099792E /* PicturesViewModel.swift */; };
+		15D118602AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15D1185E2AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodeld */; };
 		15EAC4DB2AF67EFB00526804 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAC4DA2AF67EFB00526804 /* SearchTextField.swift */; };
 		15EAC4DE2AF67F5100526804 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAC4DD2AF67F5100526804 /* SearchViewModel.swift */; };
 		15EAC4E02AF6881900526804 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAC4DF2AF6881900526804 /* SearchTableView.swift */; };
@@ -136,6 +137,7 @@
 		15A227232AF65D390099792E /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		15A227242AF65D390099792E /* PicturesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PicturesCollectionViewCell.xib; sourceTree = "<group>"; };
 		15A227292AF6607B0099792E /* PicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesViewModel.swift; sourceTree = "<group>"; };
+		15D1185F2AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotoSearchDataModel.xcdatamodel; sourceTree = "<group>"; };
 		15EAC4DA2AF67EFB00526804 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		15EAC4DD2AF67F5100526804 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		15EAC4DF2AF6881900526804 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				15A2271A2AF64DC20099792E /* PhotoSearchViewModel.swift */,
+				15D1185E2AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				153958692AF504B2001C8E87 /* AppDelegate.swift in Sources */,
 				153958C52AF5387B001C8E87 /* NetworkRouter.swift in Sources */,
 				15A2271B2AF64DC20099792E /* PhotoSearchViewModel.swift in Sources */,
+				15D118602AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodeld in Sources */,
 				153958FE2AF5C25A001C8E87 /* DetailsViewModel.swift in Sources */,
 				153958BE2AF53643001C8E87 /* Config.swift in Sources */,
 				153958FA2AF5C143001C8E87 /* DetailsItemTableViewCell.swift in Sources */,
@@ -1237,6 +1241,19 @@
 			productName = OrderedCollections;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		15D1185E2AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				15D1185F2AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodel */,
+			);
+			currentVersion = 15D1185F2AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodel */;
+			path = PhotoSearchDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1539585D2AF504B2001C8E87 /* Project object */;
 }

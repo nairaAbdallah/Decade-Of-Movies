@@ -29,7 +29,7 @@ class DetailsViewController: UIViewController, Storyboarded {
 extension DetailsViewController {
     private func setUpView() {
         innerNavigation(for: "Details")
-        detailsVM.fetchPhotos()
+        detailsVM.getPhotos()
         setUpTableView()
     }
 }

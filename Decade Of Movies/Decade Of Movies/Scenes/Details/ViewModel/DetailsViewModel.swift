@@ -5,7 +5,8 @@
 //  Created by Naira Bassam on 04/11/2023.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 protocol DetailsProtocol {
     var updateLoadingStatus: ((_ state: State) -> Void)? { get }
@@ -15,6 +16,8 @@ protocol DetailsProtocol {
 class DetailsViewModel {
     // MARK: - properties
     var delegate: DetailsProtocol?
+    // MARK: - Context
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     // callback for interfaces
     private var state: State = .empty {
         didSet {
@@ -25,12 +28,17 @@ class DetailsViewModel {
     // MARK: - Fetch PhotoSearch
     private let apiService: PhotoSearchService
     // MARK: - Fetching Result
-    var photosModel: PhotosModel? {
+    private var photosModel: PhotosModel? {
         didSet {
             self.processFetchedPhotos(data: photosModel)
         }
     }
-    var photosVM: [PhotoSearchViewModel] = [] {
+    private var photosVM: [PhotoSearchViewModel] = [] {
+        didSet {
+            processFetchedPhotosURL(data: photosVM)
+        }
+    }
+    var photosURL: [String] = [] {
         didSet {
             delegate?.reloadTableView?(false)
             state = .populated
@@ -102,9 +110,21 @@ extension DetailsViewModel {
         }
     }
 }
+// MARK: - Fetch PhotoSearch from core data or api
+extension DetailsViewModel {
+    func getPhotos() {
+        let storedPhotos = getStoredPhotos()
+        if storedPhotos == nil {
+            fetchPhotos()
+        }
+        else {
+            photosURL = storedPhotos?.images as? [String] ?? []
+        }
+    }
+}
 // MARK: - Fetch PhotoSearch
 extension DetailsViewModel {
-    func fetchPhotos() {
+    private func fetchPhotos() {
         state = .loading
         let title = delegate?.moviesData?.title ?? ""
         apiService.getPhotoSearch(text: title)
@@ -124,5 +144,41 @@ extension DetailsViewModel {
     }
     private func processFetchedPhotos(data: PhotosModel?) {
         photosVM = data?.photo?.compactMap {PhotoSearchViewModel(data: $0) } ?? []
+    }
+    private func processFetchedPhotosURL(data: [PhotoSearchViewModel]) {
+        photosURL = photosVM.compactMap {String($0.photoURL)}
+        saveFetchedPhotos()
+    }
+}
+// MARK: - CoreData
+extension DetailsViewModel {
+    // 1. Create/ Save
+    private func saveFetchedPhotos() {
+        guard let context = context else {return}
+        let fetchedPhotos = Photos(context: context)
+        fetchedPhotos.images = photosURL as NSObject
+        fetchedPhotos.movie = delegate?.moviesData?.title ?? ""
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context \(error)")
+        }
+    }
+    
+    // 1. Read
+    private func getStoredPhotos() -> Photos? {
+        state = .loading
+        guard let context = context else {return nil}
+        let movie = delegate?.moviesData?.title ?? ""
+        let request: NSFetchRequest<Photos> = Photos.fetchRequest()
+        do {
+            let storedPhotos = try context.fetch(request)
+            let photos = storedPhotos.filter {$0.movie == movie}.first
+            return photos
+        } catch {
+            print("Error fetching data from context \(error)")
+            return nil
+        }
     }
 }

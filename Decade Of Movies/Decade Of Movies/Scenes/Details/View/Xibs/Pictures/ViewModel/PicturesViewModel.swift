@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PicturesProtocol {
-    var picturesData: [PhotoSearchViewModel] {get}
+    var picturesData: [String] {get}
 }
 class PicturesViewModel {
     // MARK: - properties
@@ -24,7 +24,7 @@ extension PicturesViewModel {
     func getPictureByRow(for indexPath: IndexPath) -> String {
         let pictures = delegate?.picturesData ?? []
         guard pictures.count > indexPath.row else {return ""}
-        return pictures[indexPath.row].photoURL
+        return pictures[indexPath.row]
     }
 }
 // MARK: - Collection View DataSource

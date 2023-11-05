@@ -9,7 +9,7 @@ import UIKit
 
 class PicturesTableViewCell: UITableViewCell {
     // MARK: - Properties
-    var pictures: [PhotoSearchViewModel] = [] {
+    var pictures: [String] = [] {
         didSet {
             setupCollectionView()
         }
@@ -98,7 +98,7 @@ extension PicturesTableViewCell: UICollectionViewDelegate, UICollectionViewDeleg
 }
 // MARK: - Implement protocol
 extension PicturesTableViewCell: PicturesProtocol {
-    var picturesData: [PhotoSearchViewModel] {
+    var picturesData: [String] {
         return pictures
     }
 }

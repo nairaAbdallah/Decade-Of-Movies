@@ -49,7 +49,7 @@ extension DetailsViewController {
         else {
             fatalError("Cell not exists in cell")
         }
-        cell.pictures = detailsVM.photosVM
+        cell.pictures = detailsVM.photosURL
         return cell
     }
 }
