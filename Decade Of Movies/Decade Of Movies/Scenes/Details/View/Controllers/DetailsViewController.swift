@@ -74,9 +74,11 @@ extension DetailsViewController: DetailsProtocol {
     }
     var reloadTableView: ((Bool) -> Void)? {
         return { [weak self] isHidden in
-            guard let self = self else { return }
-            tableView.reloadData()
-            tableView.isHidden = isHidden
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                tableView.reloadData()
+                tableView.isHidden = isHidden
+            }
         }
     }
 }

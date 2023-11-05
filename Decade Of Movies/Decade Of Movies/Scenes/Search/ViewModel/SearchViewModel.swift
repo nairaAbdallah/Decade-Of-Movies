@@ -82,8 +82,8 @@ extension SearchViewModel {
 }
 // MARK: - Filter Movies
 extension SearchViewModel {
-    func filterMovies(for search: String) {
-        moviesDataVM = moviesRowData.filter { $0.title.contains(search) }
+    func filterMovies(for search: String) {      
+        moviesDataVM = !search.isEmpty ? moviesRowData.filter { $0.title.contains(search) } : moviesRowData
     }
 }
 // MARK: - get Movies for section
