@@ -142,6 +142,7 @@ extension DetailsViewModel {
                 self.photosModel = data.photos
             case .failure(let error):
                 print("error ->>> ", error)
+                delegate?.reloadTableView?(false)
                 self.state = .error
                 return
             }
