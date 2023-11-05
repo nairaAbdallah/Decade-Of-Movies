@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150C7ED82AF7B205001BE861 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C7ED72AF7B205001BE861 /* CoreDataStack.swift */; };
 		153958692AF504B2001C8E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153958682AF504B2001C8E87 /* AppDelegate.swift */; };
 		1539586B2AF504B2001C8E87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1539586A2AF504B2001C8E87 /* SceneDelegate.swift */; };
 		153958722AF504B3001C8E87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153958712AF504B3001C8E87 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		150C7ED72AF7B205001BE861 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		153958652AF504B2001C8E87 /* Decade Of Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Decade Of Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		153958682AF504B2001C8E87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1539586A2AF504B2001C8E87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		150C7ED62AF7B1F4001BE861 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				15D1185E2AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodeld */,
+				150C7ED72AF7B205001BE861 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		1539585C2AF504B2001C8E87 = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +539,7 @@
 		153958FC2AF5C24D001C8E87 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				150C7ED62AF7B1F4001BE861 /* CoreData */,
 				15A227172AF64C990099792E /* Data */,
 				153958FD2AF5C25A001C8E87 /* DetailsViewModel.swift */,
 			);
@@ -546,7 +558,6 @@
 			isa = PBXGroup;
 			children = (
 				15A2271A2AF64DC20099792E /* PhotoSearchViewModel.swift */,
-				15D1185E2AF79D7100CA0DFA /* PhotoSearchDataModel.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -814,6 +825,7 @@
 				153958DC2AF59454001C8E87 /* SearchCollectionViewCell.swift in Sources */,
 				15A227252AF65D390099792E /* PicturesCollectionViewCell.swift in Sources */,
 				15A227142AF6355E0099792E /* DetailsService.swift in Sources */,
+				150C7ED82AF7B205001BE861 /* CoreDataStack.swift in Sources */,
 				15EAC4E02AF6881900526804 /* SearchTableView.swift in Sources */,
 				153958CA2AF58234001C8E87 /* MasterViewModel.swift in Sources */,
 				153958F52AF5BE3B001C8E87 /* Navigation.swift in Sources */,

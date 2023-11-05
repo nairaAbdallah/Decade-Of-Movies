@@ -17,7 +17,8 @@ class DetailsViewModel {
     // MARK: - properties
     var delegate: DetailsProtocol?
     // MARK: - Context
-    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    private var mainContext: NSManagedObjectContext
+    private let backgroundContext: NSManagedObjectContext
     // callback for interfaces
     private var state: State = .empty {
         didSet {
@@ -46,9 +47,13 @@ class DetailsViewModel {
     }
     // MARK: - initialization
     init(apiService: PhotoSearchService = PhotoSearchServiceImpl(),
+         mainContext: NSManagedObjectContext = CoreDataStack.shared.mainContext,
+         backgroundContext: NSManagedObjectContext = CoreDataStack.shared.backgroundContext,
          delegate: DetailsProtocol?) {
         self.apiService = apiService
         self.delegate = delegate
+        self.mainContext = mainContext
+        self.backgroundContext = backgroundContext
     }
 }
 // MARK: - SetUpTableView Data
@@ -154,31 +159,38 @@ extension DetailsViewModel {
 extension DetailsViewModel {
     // 1. Create/ Save
     private func saveFetchedPhotos() {
-        guard let context = context else {return}
-        let fetchedPhotos = Photos(context: context)
+        let fetchedPhotos = Photos(context: mainContext)
         fetchedPhotos.images = photosURL as NSObject
         fetchedPhotos.movie = delegate?.moviesData?.title ?? ""
-        
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context \(error)")
+        // MARK: - Read data from background thread
+        backgroundContext.perform { [weak self] in
+            guard let self = self else {return}
+            if mainContext.hasChanges {
+                do {
+                    try mainContext.save()
+                } catch {
+                    print("Error saving context \(error)")
+                }
+            }
         }
     }
     
     // 1. Read
     private func getStoredPhotos() -> Photos? {
         state = .loading
-        guard let context = context else {return nil}
         let movie = delegate?.moviesData?.title ?? ""
         let request: NSFetchRequest<Photos> = Photos.fetchRequest()
-        do {
-            let storedPhotos = try context.fetch(request)
-            let photos = storedPhotos.filter {$0.movie == movie}.first
-            return photos
-        } catch {
-            print("Error fetching data from context \(error)")
-            return nil
+        var photos: Photos? = nil
+        // MARK: - Read data from main thread
+        mainContext.performAndWait { [weak self] in
+            guard let self = self else {return}
+            do {
+                let storedPhotos = try mainContext.fetch(request)
+                photos = storedPhotos.filter {$0.movie == movie}.first
+            } catch {
+                print("Error fetching data from context \(error)")
+            }
         }
+        return photos
     }
 }
